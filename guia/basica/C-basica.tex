@@ -101,7 +101,7 @@ listing only,
 \end{itemize}
 
 Es un lenguaje compilado que corre directamente en el sistema host y permite manipulación directa de memoria. 
-Es un lenguaje de programación de propósito general, que ha sido ampliamente utilizado en sistemas operativos, compiladores, interpretes, etc.
+Es un lenguaje de programación de propósito general, que ha sido ampliamente utilizado en sistemas operativos, compiladores, intérpretes, etc.
 
 \subsubsection*{Puntos fuertes:}
 \begin{itemize}
@@ -133,7 +133,7 @@ Para que puedan afianzar de manera correcta los conceptos, es importante que sig
   
 \end{itemize}
 
-El aprendizaje de un lenguaje rara vez es lineal. Es un proceso iterativo y es normal que haya que volver atrás para entender algo. Esperamos que esta guía les sirva para aprender los rudimentos de C y que puedan usarlo en de manera efectiva en la materia y en sus proyectos. Si tienen consultas, no duden en preguntar. Si les parece que existe un error o que algo se puede explicar mejor, no duden en hacérnoslo saber.
+El aprendizaje de un lenguaje rara vez es lineal. Es un proceso iterativo y es normal que haya que volver atrás para entender algo. Esperamos que esta guía les sirva para aprender los rudimentos de C y que puedan usarlo de manera efectiva en la materia y en sus proyectos. Si tienen consultas, no duden en preguntar. Si les parece que existe un error o que algo se puede explicar mejor, no duden en hacérnoslo saber.
 
 Ahora sí, ¡a programar!
 
@@ -156,7 +156,7 @@ Vaya, parece que tenemos un programa en C que nos saluda. Veamos que hace.
 Este primer código en C escribe en pantalla el texto \texttt{Hola, Orga!} en la consola y termina. Hace uso de la función \hl{printf} de la biblioteca estándar de C que imprime en pantalla. 
 La función \hl{main} es el punto de entrada de cualquier programa en C y devuelve un valor al sistema operativo. Notar que devuelve un tipo \hl{int}.
 
-Lo primero que encontramos es un \hl{\#include <stdio.h>}. \hl{\#include} es una directiva de pre-procesador (porque empieza con \hl{\#} que agrega las declaraciones al comienzo del archivo (funciona como un \textit{copy paste}).
+Lo primero que encontramos es un \hl{\#include <stdio.h>}. \hl{\#include} es una directiva de pre-procesador porque empieza con \hl{\#} que agrega las declaraciones al comienzo del archivo (funciona como un \textit{copy paste}).
 En particular, el archivo \texttt{stdio.h} es un \textit{header file} o encabezado que se encuentra en un directorio estándar del sistema y contiene declaraciones de funciones que interactúan con entrada/salida, como lo es \hl{printf}. 
 
 Como resumen llevémonos los siguientes conceptos básicos de un programa en C:
@@ -468,7 +468,7 @@ Se puede especificar los valores que toman las enumeraciones. Por ejemplo:
 En general, el tipo subyacente de una enumeración es un \hl{int}, pero puede ser otros tipos enteros también. para más información: \url{https://en.cppreference.com/w/c/language/enum}. 
 
 \subsection*{Conversiones de tipos}
-Dado una variable en C, puedo realizar una conversion de tipos de manera manual denominada \textit{casting}. Lo que permite el casting (o \textit{casteo}, como se le suele decir), es reinterpretar un valor de cierto tipo como otro.
+Dado una variable en C, se puede realizar una conversión de tipos de manera manual denominada \textit{casting}. Lo que permite el casting (o \textit{casteo}, como se le suele decir), es reinterpretar un valor de cierto tipo como otro.
 
 Veamos un programa un poco más avanzado que incorpora operaciones de casteo explícito:
 \begin{cbox}[]{Casting}
@@ -821,8 +821,7 @@ a[3] = 40;
   \label{fig:array}
 \end{center}
 
-Dependiendo de donde esté definido, un array puede estar sin inicializar. En ese caso, los valores de los elementos del array son basura. Veamos como se inicializa típicamente un array:
-
+Dependiendo de dónde esté definido, un array puede estar sin inicializar. En ese caso, los valores de los elementos del array son basura. Veamos cómo se inicializa típicamente un array:
 \begin{cbox}[]{}
   #define N 100
 
@@ -1001,7 +1000,7 @@ Los scopes pueden ser\footnote{Hay más, pero estos son los más comunes}:
 \end{itemize}
 
 \subsection*{Duración}
-La duración de una variable es el tiempo durante el cual existe. En ese tiempo, la variable tiene un espacio de memoria asignado. No quiere decir que pueda ser accedida, eso depende del scope. quiere decir que la variable tiene un espacio de memoria asignado.
+La duración de una variable es el tiempo durante el cual existe. En ese tiempo, la variable tiene un espacio de memoria asignado. No quiere decir que pueda ser accedida, eso depende del scope. Quiere decir que la variable tiene un espacio de memoria asignado.
 Las duraciones pueden ser:
 \begin{itemize}
     \item \textbf{Estática:} La variable existe durante toda la ejecución del programa. Toda variable global es estática. Se destruye cuando el programa termina.
@@ -1013,7 +1012,7 @@ Toda variable local a una función tiene, por defecto, una duración \textit{aut
 
 Además, toda variable global no inicializada explícitamente es inicializada a 0. Esto no sucede con las variables locales. Por lo tanto, si una variable local no es inicializada explícitamente, su valor es basura.
 
-Se conoce como \textit{shadowing} a la situación en la que una variable local tiene el mismo nombre que una variable global. En este caso, la variable local "oculta" a la variable global. Esto puede llevar a confusiones y errores, por lo que se recomienda evitarlo.
+Se conoce como \textit{shadowing} a la situación en la que una variable local tiene el mismo nombre que una variable global. En este caso, la variable local ``oculta'' a la variable global. Esto puede llevar a confusiones y errores, por lo que se recomienda evitarlo.
 
 Veamos un ejemplo de \textit{shadowing}:
 \begin{cbox}[]{}
@@ -1135,7 +1134,7 @@ En este ejemplo tenemos dos funciones. La función \hl{main} donde empieza a eje
 
 También se podría haber escrito de la siguiente manera, que es más común en C:
 
-\begin{cbox}[]{Analisis de numero primo}
+\begin{cbox}[]{Análisis de número primo}
   #include <stdio.h>
   
   int es_primo(int n);    // prototipo o declaración de función
@@ -1250,7 +1249,7 @@ Por último, veamos un ejemplo de uso de la palabra clave \hl{static} en una fun
     alcoholizar();
     print_estado();
     alcoholizar();alcoholizar();alcoholizar();
-    print_estado(); // que imprime?
+    print_estado(); // qué imprime?
   }
   void alcoholizar(){
     static int cantidad = 0; // static duration. block scope
@@ -1353,7 +1352,7 @@ El siguiente esquema de programa muestra solo definiciones de funciones y de var
 
 \subsection*{Compilación}
 
-C es un lenguaje \textit{compilado}. El resultado de compilar un programa deriva en un archivo ejecutable que corre sobre la máquina. Hay que tener en cuenta que en C \textit{cada archivo se compila por separado}. Por lo tanto, si se tienen varios archivos fuente, cada uno de ellos se compila en un archivo objeto. Luego, se los enlaza (``linkea'') para generar el archivo ejecutable. ¿Y los archivos de cabecera? Estos se incluyen en los archivos fuente (con la directiva \hl{\#include}), y el preprocesador los reemplaza por el contenido del archivo de cabecera (como si fuera un copy-paste). Es decir, que el compilador de C en sí, no ``ve'' los archivos de cabecera, sino que ya los ve incluidos o expandidos, como se suele decir, en el archivo fuente. Cada una de estas unidades de compilación se llama \textit{unidad de traducción} o en inglés \textit{translation unit}.
+C es un lenguaje \textit{compilado}. El resultado de compilar un programa deriva en un archivo ejecutable que corre sobre la máquina. Hay que tener en cuenta que en C \textit{cada archivo se compila por separado}. Por lo tanto, si se tienen varios archivos fuente, cada uno de ellos se compila en un archivo objeto. Luego, se los enlaza (``linkea'') para generar el archivo ejecutable. ¿Y los archivos de cabecera? Estos se incluyen en los archivos fuente (con la directiva \hl{\#include}), y el preprocesador los reemplaza por el contenido del archivo de cabecera (como si fuera un copy-paste). Es decir, que el compilador de C en sí no ``ve'' los archivos de cabecera, sino que ya los ve incluidos o expandidos, como se suele decir, en el archivo fuente. Cada una de estas unidades de compilación se llama \textit{unidad de traducción} o en inglés \textit{translation unit}.
 
 El proceso de compilación se divide en varias etapas:
 
@@ -1525,7 +1524,7 @@ Las dependencias que un módulo \hl{.c} puede tener con los headers \hl{.h} pued
 \end{bashbox}
 
 Esto es un problema, porque si tenemos muchos módulos y muchos headers, se hace muy difícil mantenerlo. Además, si un header incluye a otro header, y este último cambia, el primero también debería recompilarse. Pero no lo sabemos a menos que mantengamos el árbol de dependencias a mano. Los include guards justamente evitan duplicaciones en los include, pero cuando tenemos que saber quién incluye a quién y tenemos que además mantener el árbol de dependencias a mano, nos estamos plantando bombas en el camino. Por eso existen unos flags de compilación que se le pueden pasar a gcc: \hl{-MMD -MP}. Esto hace que genere unos archivos de dependencias con extensión \hl{.d}. Se pueden chusmear, porque se van a  generar en el directorio de trabajo. 
-Ya que el compilador estudia todas las dependencias entre los archivos, como parte de su proceso de compilación habitual, incluyendo este flag le decimos que nos genere targets armados de Makefile que ya nos sirvan. Es un ejemplo de cooperación entre el compilador y make. Finalmente, lo que hacemos con el último \hl{-include} es justamente "pegar" esas reglas para informarle a make que tenga en cuenta esas dependencias y dispare la compilación en caso de cambios en los headers. El \hl{-include} le dice a make que incluya el archivo de dependencias, pero no arroje un error si no existe. Alta black magic.
+Ya que el compilador estudia todas las dependencias entre los archivos, como parte de su proceso de compilación habitual, incluyendo este flag le decimos que nos genere targets armados de Makefile que ya nos sirvan. Es un ejemplo de cooperación entre el compilador y make. Finalmente, lo que hacemos con el último \hl{-include} es justamente ``pegar'' esas reglas para informarle a make que tenga en cuenta esas dependencias y dispare la compilación en caso de cambios en los headers. El \hl{-include} le dice a make que incluya el archivo de dependencias, pero no arroje un error si no existe. Alta black magic.
 
 \begin{center}
   \includegraphics[scale=0.5]{./img/drop_makefile.png}

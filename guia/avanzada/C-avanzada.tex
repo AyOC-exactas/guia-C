@@ -212,7 +212,7 @@ typedef uint32_t vaddr_t; // direccion virtual.
 typedef uint32_t paddr_t; // direccion fisica.
 \end{cbox}
 
-Notar como primero viene el tipo original y luego el nuevo tipo.
+Notar cómo primero viene el tipo original y luego el nuevo tipo.
 
 En el siguiente fragmento definimos una estructura y le asignamos un alias \hl{player\_t} para poder usarlo más fácilmente en el resto del código. Además, notar el tipo de inicialización alternativa de \hl{player3}:
 
@@ -345,8 +345,8 @@ Comencemos mirando el siguiente código:
       int x = 42;
       int *p = &x;
   
-      printf("Direccion de x:  %p Valor: %d\n", (void*) &x, x);
-      printf("Direccion de p: %p Valor: %p\n", (void*) &p, (void*) p);
+      printf("Dirección de x:  %p Valor: %d\n", (void*) &x, x);
+      printf("Dirección de p: %p Valor: %p\n", (void*) &p, (void*) p);
       printf("Valor de lo que apunta p: %d\n", *p);
   }
 \end{cbox}
@@ -355,7 +355,7 @@ Comencemos mirando el siguiente código:
   Sin correr el código, responder:
   \begin{itemize}
     \item ¿Cuál es la diferencia entre \texttt{x} y \texttt{p}? ¿Y entre \texttt{x} y \texttt{\&x}? ¿Y entre \texttt{p} y \texttt{*p}?
-    \item ¿Qué valores creen que se van a imprimir por terminal?
+    \item ¿Qué valoreó creen que se van a imprimir por terminal?
   \end{itemize}
 \end{exbox}
 
@@ -532,7 +532,7 @@ Veamos la siguiente secuencia:
 \end{minipage}
 
 \vspace {0.5cm}
-Notamos que el puntero \hl{pi} apunta a la dirección de memoria de \hl{a}, que es la dirección de memoria del primer elemento del array. Momento... entonces ¿qué es \hl{a}? ¿Es un puntero? ¿Es un array? \hl{a} representa un array, pero en C, un array se comporta como un puntero al primer elemento del array. Por lo tanto, \hl{a} y \hl{pi} apuntan a la misma dirección de memoria.
+Notamos que el puntero \hl{pi} apunta a la dirección de memoria de \hl{a}, que es la dirección de memoria del primer elemento del array. Momento... entonces ¿Qué es \hl{a}? ¿Es un puntero? ¿Es un array? \hl{a} representa un array, pero en C, un array se comporta como un puntero al primer elemento del array. Por lo tanto, \hl{a} y \hl{pi} apuntan a la misma dirección de memoria.
 
 En la mayoría de los contextos, \hl{a} se puede usar como un puntero al primer elemento del array. Sin embargo, hay algunas diferencias importantes entre arrays y punteros que debemos tener en cuenta:
 \begin{itemize}
@@ -619,7 +619,7 @@ p[n] == *(p+n)
 
 Los punteros son útiles para pasar argumentos a funciones sin necesidad de copiar el valor completo. Esto es especialmente útil para estructuras grandes o arrays. Al pasar un puntero, estamos pasando la dirección de memoria del valor, lo que permite a la función modificar el valor original.
 
-Aqui vemos la implementación típica de la función \hl{swap}, que intercambia los valores de dos variables enteras usando punteros:
+Aquí vemos la implementación típica de la función \hl{swap}, que intercambia los valores de dos variables enteras usando punteros:
 
 \begin{cbox}[]{}
 
@@ -655,7 +655,7 @@ Veamos un ejemplo de cómo usar punteros para manipular strings:
 \begin{cbox}[]{}
   #include <stdio.h>
 
-  site_t lenght(char *str) {
+  site_t length(char *str) {
       size_t len = 0;
       while (*str != '\0') {
           len++;
@@ -666,7 +666,7 @@ Veamos un ejemplo de cómo usar punteros para manipular strings:
 
   int main() {
       char str[] = "This too shall pass";
-      printf("Length of string: %zu\n", lenght(str));
+      printf("Length of string: %zu\n", length(str));
     return 0;
   }
 \end{cbox}
@@ -695,7 +695,7 @@ Definir una función que reciba un string y lo pase a mayúsculas. \textbf{Pista
 \begin{exbox}
 Crear programas demostrativos que utilicen las funciones de strings provistas en la librería estándar de C (en \hl{string.h}): \hl{strcpy}, \hl{strcat}, \hl{strlen}, \hl{strcmp}, etc. Para acceder a la documentación de cada función se puede usar la línea de comando: \hl{man strcpy}, \hl{man strlen}, etc. 
 
-\textbf{Side quest:} investigar que significa \hl{restrict} en la firma de la función \hl{strcpy}
+\textbf{Side quest:} investigar qué significa \hl{restrict} en la firma de la función \hl{strcpy}
 \end{exbox}
 
 \newpage
@@ -792,7 +792,7 @@ La siguiente tabla muestra un panorama de los tipos de memoria, su scope, duraci
 
 \newpage
 El linkage de una variable definida por fuera de cualquier función lo especificamos con la palabra clave \hl{static}. Esto significa que la variable no es accesible desde otros archivos, pero su duración es la misma que la de una variable global. Por lo tanto, el linkage de una variable estática es interno. Por defecto, el linkage de una variable global es externo.
-Esto también aplica a funciones que tiene por defecto un linkage externo. Si queremos que una función tenga un linkage interno, debemos declararla como \hl{static}. Esto significa que la función no es accesible desde otros archivos.
+Esto también aplica a funciones que tienen por defecto un linkage externo. Si queremos que una función tenga un linkage interno, debemos declararla como \hl{static}. Esto significa que la función no es accesible desde otros archivos.
 
 Veamos ejemplos de lo anterior:
 
@@ -906,7 +906,7 @@ Antes de seguir avanzando, discutan qué sucede si corren el siguiente código:
 
 \end{exbox}
 
-El problema, básicamente radica en que la variable \hl{arr} es una variable automática, y por lo tanto, se libera al salir de la función. Esto significa que la dirección de memoria a la que apunta \hl{arr} ya no es válida al salir de la función. Por lo tanto, el puntero \hl{arr} en la función \hl{main} apunta a una dirección de memoria inválida.
+El problema básicamente radica en que la variable \hl{arr} es una variable automática, y por lo tanto, se libera al salir de la función. Esto significa que la dirección de memoria a la que apunta \hl{arr} ya no es válida al salir de la función. Por lo tanto, el puntero \hl{arr} en la función \hl{main} apunta a una dirección de memoria inválida.
 Esto es un error común en C, y es importante tener cuidado al usar variables automáticas y punteros. Para evitar este error, podemos usar memoria dinámica para reservar el array. Veamos cómo hacerlo:
 \begin{cbox}[]{}
   uint16_t *secuencia(uint16_t n){
@@ -939,7 +939,7 @@ Esta función la utilizaríamos de la siguiente manera:
   }
 \end{cbox}
 
-Notemos que al usar \hl{malloc}, la memoria se reserva en el \textit{heap} y no se libera automáticamente al salir de la función. Por lo tanto, debemos liberar la memoria manualmente usando \hl{free}. Es normal que al alocación de memoria suceda en una función y la liberación en otra. Cuando nos olvidamos de liberar la memoria, se produce una \textbf{fuga de memoria} (\textit{memory leak}), que puede causar problemas de rendimiento y estabilidad en el programa. Por lo tanto, es importante liberar la memoria reservada cuando ya no la necesitamos.
+Notemos que al usar \hl{malloc}, la memoria se reserva en el \textit{heap} y no se libera automáticamente al salir de la función. Por lo tanto, debemos liberar la memoria manualmente usando \hl{free}. Es normal que la alocación de memoria suceda en una función y la liberación en otra. Cuando nos olvidamos de liberar la memoria, se produce una \textbf{fuga de memoria} (\textit{memory leak}), que puede causar problemas de rendimiento y estabilidad en el programa. Por lo tanto, es importante liberar la memoria reservada cuando ya no la necesitamos.
 
 \begin{exbox}
 Definir una función \hl{crearPersona} que reciba un nombre y una edad, y devuelva un puntero a una estructura \hl{persona\_t} que contenga esos datos. La función debe reservar memoria dinámica para la estructura y devolver el puntero. Luego, en la función \hl{main}, crear una persona y liberar la memoria reservada.
@@ -963,7 +963,7 @@ Podemos ver la estructura que queremos crear en el siguiente diagrama:
 
 Tenemos una primera estructura que representa la lista y que tiene un puntero al primer nodo de la lista. Luego cada nodo, referencia al nodo siguiente. El último nodo apunta a \hl{NULL} para indicar el final de la lista. Cada nodo tiene un puntero a un archivo, especificado como \hl{void *data}. La lista también tiene un \hl{size} que indica la cantidad de nodos en la lista. La lista tiene un \hl{type} que indica el tipo de sistema de archivos que puede manejar esa lista. 
 
-Veamos primero la declaración es estas estructuras:
+Veamos primero la declaración de estas estructuras:
 
 \begin{cbox}[]{list.h}
   #include "type.h"
@@ -1019,7 +1019,7 @@ El archivo \hl{type.h} tiene la definición de \hl{type\_t} y de las funciones d
 
 Se usa un \hl{typedef} para definir el tipo \hl{type\_t}, que es un \hl{enum} que representa los diferentes tipos de sistemas de archivos. Recordemos que un \hl{enum} es un tipo de dato que permite definir un conjunto de constantes enteras con nombre. En este caso, \hl{TypeFAT32}, \hl{TypeEXT4} y \hl{TypeNTFS} son los nombres de las constantes que representan los diferentes tipos de sistemas de archivos.
 
-Las funciones de tipo \hl{new\_} crean archivos, y las funciones de tipo \hl{copy\_} copian archivos y las funciones de tipo \hl{rm\_} eliminan archivos. No nos interesa en este ejemplo, la definición de esas funciones, así que vamos a suponer que se encuentran en alguna biblioteca externa.
+Las funciones de tipo \hl{new\_} crean archivos, y las funciones de tipo \hl{copy\_} copian archivos y las funciones de tipo \hl{rm\_} eliminan archivos. No nos interesa en este ejemplo la definición de esas funciones, así que vamos a suponer que se encuentran en alguna biblioteca externa.
 
 En la implementación haremos uso del operador \hl{->} y del operador \hl{sizeof}. El operador \hl{->} se usa para acceder a los miembros de una estructura a través de un puntero. Por ejemplo, \hl{l->type} accede al miembro \hl{type} de la estructura \hl{list\_t} a través del puntero \hl{l}. Esto es equivalente a \hl{(*l).type}, pero es más legible y conveniente. El operador \hl{sizeof} es una función que devuelve el tamaño en bytes de un tipo de dato o de una variable. Por ejemplo, \hl{sizeof(uint16\_t)} devuelve el tamaño en bytes del tipo \hl{uint16\_t}. Esto es útil para reservar memoria dinámica, ya que necesitamos saber cuántos bytes necesitamos reservar.
 
@@ -1127,7 +1127,7 @@ Podríamos usar la lista de la siguiente manera:
 Estudien este ejemplo con detenimiento. Podemos hacer algunas optimizaciones usando punteros a función, que veremos más adelante. Por ahora, lo importante es entender cómo funcionan los punteros y la memoria dinámica en C.
 
 \begin{exbox}
-  Implementen el ejemplo anterior, implementando funciones dummy para \hl{new\_}, \hl{copy\_} y \hl{rm\_} .Pueden por ejemplo hacer usar \hl{typedef uint32\_t fat23\_t} para definir el tipo de dato \hl{fat32\_t}. Luego, en las funciones \hl{new\_} y \hl{copy\_} reservar y asignar un valor a la variable. En la función \hl{rm\_} simplemente liberar la memoria.
+  Implementen el ejemplo anterior, implementando funciones dummy para \hl{new\_}, \hl{copy\_} y \hl{rm\_} .Pueden por ejemplo usar \hl{typedef uint32\_t fat23\_t} para definir el tipo de dato \hl{fat32\_t}. Luego, en las funciones \hl{new\_} y \hl{copy\_} reservar y asignar un valor a la variable. En la función \hl{rm\_} simplemente liberar la memoria.
 \end{exbox}
 
 \begin{exbox}
@@ -1165,7 +1165,7 @@ La memoria dinámica es muy útil, pero también puede ser peligrosa si no se us
 La herramienta \hl{valgrind} es muy útil para detectar estos problemas. \hl{valgrind} es una herramienta de depuración que se utiliza para detectar errores de memoria en programas. Para usar \hl{valgrind}, es recomendable compilar el programa con la opción \hl{-g} para incluir información de depuración. Luego, se puede ejecutar el programa con \hl{valgrind ./programa}. Luego de ejecutar el comando, \hl{valgrind} mostrará información sobre las fugas de memoria, accesos a memoria no válida y otros problemas de memoria. Más info en \url{https://valgrind.org/docs/manual/quick-start.html}.
 
 \begin{exbox}
-  Forzar un error de memoria en en el ejemplo de la lista enlazada, por ejemplo, al eliminar un nodo, liberar la memoria del nodo pero no liberar la memoria de los datos. Luego correr el programa con \hl{valgrind} y ver qué errores se producen.
+  Forzar un error de memoria en el ejemplo de la lista enlazada, por ejemplo, al eliminar un nodo, liberar la memoria del nodo pero no liberar la memoria de los datos. Luego correr el programa con \hl{valgrind} y ver qué errores se producen.
 \end{exbox}
 
 \newpage
@@ -1307,7 +1307,7 @@ Analicen cuidadosamente el siguiente ejemplo y respondan las preguntas:
       // p apunta al int en la fila 0, columna 0
       int *p = &matrix[0][0]; 
 
-      // ¿qué es reshape?
+      // ¿Qué es reshape?
       int (*reshape)[2] = (int (*)[2]) p; 
 
       printf("%d\n", p[3]); // Qué imprime esta línea?
@@ -1347,9 +1347,9 @@ El código que veremos a continuación inicializa el buffer de video:
 \begin{cbox}[]{}
   #define VIDEO_COLS 80
   #define VIDEO_FILS 50
-  // Cada posicion de memoria tiene 2 bytes
+  // Cada posición de memoria tiene 2 bytes
   typedef struct ca_s {
-    uint8_t c; // caracter
+    uint8_t c; // carácter
     uint8_t a; // atributos
   } ca;
   void screen_draw_layout(void) {
@@ -1566,7 +1566,7 @@ int main(void){
 
 Copiar el snippet a un archivo C y compilarlo con los símbolos de debug activos: 
 
-\hl{gcc -g <nombre\_del\_archivo>.c \-o main}.
+\hl{gcc -g <nombre\_del\_archivo>.c -o main}.
 
 Esto nos generará el ejecutable \hl{main}.
 Ahora, podemos debuggear el programa con \hl{GDB} a través de éste usando el comando \hl{gdb main} en la terminal (parados en el directorio que lo contenga).
@@ -1578,7 +1578,7 @@ Prueben lo siguiente:
 
 \begin{itemize}
   \item Colocar un breakpoint en la función main.
-  \item Usar hl{run} para avanzar la ejecución hasta el primer \textit{breakpoint}.
+  \item Usar \hl{run} para avanzar la ejecución hasta el primer \textit{breakpoint}.
   \item Colocar un \textit{breakpoint} en el llamado a la función \hl{contarHasta}.
   \item Usar \hl{continue} o \hl{c} para avanzar hasta el siguiente \textit{breakpoint}.
   \item Podemos usar \hl{step into} o \hl{si} para entrar dentro de la ejecución de la función llamada. 
@@ -1842,7 +1842,7 @@ Observen la siguiente pieza de código, se trata de una función que Pedro imple
 
 Compilen con información de debug activa y ejecuten el programa. Pedro espera poder habilitar a los usuarios correctamente, ¿cuál es la salida obtenida?
 
-Utilicen GDB para determinar el origen del problema. Una vez detectado, corrijanlo y asegurense de que los usuarios pueden ser dados de alta correctamente.
+Utilicen GDB para determinar el origen del problema. Una vez detectado, corríjanlo y asegurense de que los usuarios pueden ser dados de alta correctamente.
 
 Pista: analicen qué sucede dentro de la función \hl{habilitarUsuario}.
 
@@ -1895,7 +1895,7 @@ void comprarHelado(usuario_t *usuario, helado_t* *helado){
     if(usuario->saldo >= 5){
         usuario->saldo -= 5;
         *helado = &heladoDDL;
-        printf("Helado comprado con exito\n");
+        printf("Helado comprado con éxito\n");
     }else{
         printf("El usuario no tiene saldo suficiente\n");
     }
@@ -2048,7 +2048,7 @@ Una lista enlazada es una estructura de datos donde cada nodo contiene un valor 
 
 El primer nodo de una lista se denomina la \textbf{cabeza} de la lista. Una lista se recorre comenzando por la cabeza y avanzando al siguiente nodo hasta que no haya un siguiente nodo al cual avanzar.
 
-Primero tenemos que definir las estructuras que van a representar a la lista enlazada en memoria. Para esto vamos a definir dos structs, \hl{lista\_t} para representar el la lista en sí misma y \hl{nodo\_t} para los elementos que forman la lista.
+Primero tenemos que definir las estructuras que van a representar a la lista enlazada en memoria. Para esto vamos a definir dos structs, \hl{lista\_t} para representar a la lista en sí misma y \hl{nodo\_t} para los elementos que forman la lista.
 
 \begin{cbox}[unbreakable]{declaración de estructuras de lista enlazada}
 typedef struct nodo_s {
@@ -2063,7 +2063,7 @@ typedef struct lista_s {
 } lista_t;
 \end{cbox}
 
-Una \hl{lista\_t} está definida por el puntero a la cabeza de la lista, es decir el primer nodo de la lista. Luego en cada \hl{nodo\_t} se almacena el valor que este representa y el puntero al siguiente nodo en la lista (si es que dicho nodo existe).
+Una \hl{lista\_t} está definida por el puntero a la cabeza de la lista, es decir el primer nodo de la lista. Luego en cada \hl{nodo\_t} se almacena el valor que éste representa y el puntero al siguiente nodo en la lista (si es que dicho nodo existe).
 
 Primero vamos a definir funciones pare crear una lista vacía y un nuevo nodo.
 
